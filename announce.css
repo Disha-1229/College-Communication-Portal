@@ -1,0 +1,544 @@
+/* =========================================================
+   LOCAL FONT FACE DEFINITIONS
+========================================================= */
+
+/* === DM Sans (Variable Font) === */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === Space Grotesk (Variable Font) === */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === Font Awesome (Local Icons) === */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url('icons/webfonts/fa-solid-900.woff2') format('woff2'),
+       url('icons/webfonts/fa-solid-900.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('icons/webfonts/fa-regular-400.woff2') format('woff2'),
+       url('icons/webfonts/fa-regular-400.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('icons/webfonts/fa-brands-400.woff2') format('woff2'),
+       url('icons/webfonts/fa-brands-400.woff') format('woff');
+}
+
+/* =========================================================
+   THEME & GENERAL STYLES
+========================================================= */
+:root {
+  --background-color: #1A202C;
+  --container-bg-color: #252D3A;
+  --card-background: #252D3A;
+  --button-primary: #d97706;
+  --button-primary-hover: #b45309;
+  --text-white: #ffffff;
+  --text-muted: #cfd3d9;
+  --text-accent: #d97706;
+  --border-color: #4b5563;
+  --divider-color: #4b5563;
+  --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --border-radius: 1.5rem;
+  --font-primary: 'DM Sans', sans-serif;
+  --font-headings: 'Space Grotesk', sans-serif;
+}
+
+/* ===== GENERAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--background-color);
+  color: var(--text-white);
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.app-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 280px;
+  background-color: var(--container-bg-color);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  z-index: 9999 !important;
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.is-open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 40px;
+  height: 34px;
+}
+
+.sidebar-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sidebar-close-btn:hover {
+  color: var(--text-white);
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  z-index: 2000;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-item i {
+  font-size: 18px;
+  width: 30px;
+  text-align: center;
+  margin-right: 15px;
+}
+
+.nav-item:hover {
+  background-color: rgba(217, 119, 6, 0.1);
+  color: var(--text-accent);
+}
+
+.nav-item.active {
+  background-color: var(--button-primary);
+  color: var(--text-white);
+}
+
+.logout-btn:hover {
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* ===== SIDEBAR FIX ===== */
+.app-container.sidebar-is-open::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 500;
+  pointer-events: none !important;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  flex-grow: 1;
+  margin-left: 0;
+  width: 100%;
+  transition: margin-left 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.app-container.sidebar-is-open .main-content {
+  margin-left: 280px;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.main-logo {
+  font-family: var(--font-headings);
+  color: var(--text-accent);
+  font-size: 33px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sidebar-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 24px;
+  cursor: pointer;
+  width: 40px;
+}
+
+.header-spacer {
+  width: 40px;
+}
+
+/* ===== FEED ===== */
+.feed-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.feed-title {
+  font-family: var(--font-headings);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.post-announcement-wrapper {
+  background-color: var(--card-background);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+}
+
+.post-form {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.post-form textarea {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: var(--font-primary);
+  background: transparent;
+  color: var(--text-white);
+  margin-right: 15px;
+  resize: none;
+  overflow-y: hidden;
+  line-height: 1.5;
+}
+
+.post-form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.post-form button {
+  background-color: var(--button-primary);
+  color: var(--text-white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.post-form button:hover {
+  background-color: var(--button-primary-hover);
+}
+
+/* ===== ANNOUNCEMENTS ===== */
+.announcements-feed {
+  margin-top: 20px;
+}
+
+.announcement-post {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: var(--box-shadow);
+}
+
+.post-content {
+  position: relative;
+  width: 100%;
+}
+
+.delete-post-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px;
+  display: none;
+  transition: color 0.2s ease;
+}
+
+.announcement-post:hover .delete-post-btn {
+  display: block;
+}
+
+.delete-post-btn:hover {
+  color: #e74c3c;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.post-author {
+  font-weight: 600;
+  color: var(--text-white);
+  margin-right: 8px;
+}
+
+.post-time {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.post-text {
+  line-height: 1.5;
+  font-size: 16px;
+  color: var(--text-muted);
+  overflow-wrap: break-word;
+}
+
+/* ===== COMMENTS ===== */
+.post-actions {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.post-actions i {
+  font-size: 18px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.post-actions i:hover {
+  color: var(--text-accent);
+}
+
+.comment-count {
+  font-size: 16px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.comments-section {
+  display: none;
+  border-top: 1px solid var(--divider-color);
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.comments-section.is-visible {
+  display: block;
+}
+
+.comment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-size: 14px;
+  padding-right: 25px;
+}
+
+.comment-author {
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.comment-text {
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.delete-comment-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  display: none;
+  transition: color 0.2s ease;
+}
+
+.comment:hover .delete-comment-btn {
+  display: block;
+}
+
+.delete-comment-btn:hover {
+  color: #e74c3c;
+}
+
+.comment-form {
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.comment-form input {
+  flex-grow: 1;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 8px 15px;
+  color: var(--text-white);
+  font-size: 14px;
+}
+
+.comment-form input:focus {
+  outline: none;
+  border-color: var(--button-primary);
+}
+
+.comment-form button {
+  background-color: var(--button-primary);
+  color: var(--text-white);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.comment-form button:hover {
+  background-color: var(--button-primary-hover);
+}
+
+/* ====== FIX: MAKE SIDEBAR LINKS CLICKABLE ====== */
+.app-container.sidebar-is-open::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 500;
+  pointer-events: none !important; /* ✅ lets clicks pass through */
+}
+
+.sidebar {
+  z-index: 1000 !important; 
+  position: fixed;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.cat-tab {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cat-tab.active {
+  background: var(--button-primary);
+  color: var(--text-white);
+  border-color: var(--button-primary);
+}
+
+#announcementCategory {
+  background: var(--card-background);
+  color: var(--text-white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px;
+  margin-right: 12px;
+  font-weight: 600;
+}
+.post-form { align-items: center; gap: 10px; }
+.post-form textarea { flex: 1; }
+
+/* Add spacing between posts */
+.announcement {
+  margin-bottom: 20px;   /* vertical space between posts */
+  padding: 12px;          /* optional, for cleaner layout */
+  border-radius: 10px;    /* optional, smooth edges */
+  background-color: #2e3b4f; /* optional, makes each post stand out */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* soft shadow for clarity */
+}
+
+

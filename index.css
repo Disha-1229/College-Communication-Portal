@@ -1,0 +1,172 @@
+/* ============================================================
+   LOCAL FONT SETUP — DM Sans + Space Grotesk (Variable)
+   ============================================================ */
+
+/* === DM Sans Regular (Variable) === */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === Space Grotesk (Variable) === */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+                ROOT VARIABLE
+   ============================================================ */
+:root {
+  --background-color: #152030;
+  --container-bg-color: #1a1f27;
+  --card-background: #1a1f27;
+  --button-primary: #d97706;
+  --button-primary-hover: #b45309;
+  --text-white: #ffffff;
+  --text-muted: #cfd3d9;
+  --text-accent: #d97706;
+  --border-color: #4b5563;
+  --divider-color: #4b5563;
+  --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --border-radius: 1.5rem;
+}
+
+
+/* ============================================================
+                  BODY & GENERAL LAYOUT
+   ============================================================ */
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+
+/* === MAIN CONTAINER - The Whole Dark Blue  === */
+.container {
+  max-width: 400px;
+  width: 100%;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+
+/* === MAIN CARD BOX - A Section of Dark Blue  === */
+.main-card {
+  background-color: var(--container-bg-color);
+  border-radius: var(--border-radius);
+  padding: 3rem 2rem;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  max-width: 24rem;
+  margin: auto;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+
+/* === LOGO & TEXT === */
+.logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-accent);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+
+/* === ALL THE BUTTONS === */
+.button {
+  width: 80%;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  text-decoration: none;
+}
+
+
+/* === LOGIN BUTTON === */
+.button-primary {
+  background-color: var(--button-primary);
+  color: var(--text-white);
+  margin-bottom: 0.5rem;
+}
+.button-primary:hover {
+  background-color: var(--button-primary-hover);
+  transform: translateY(-2px);
+}
+
+
+/* === SIGN-UP BUTTON === */
+.button-secondary {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 2px solid var(--border-color);
+  margin-top: 0.5rem;
+}
+.button-secondary:hover {
+  background-color: var(--text-muted);
+  color: black;
+  transform: translateY(-2px);
+}
+
+
+/* === DIVIDER - The Line === */
+.divider {
+  margin: 1.5rem 0;
+  text-align: center;
+  position: relative;
+  color: var(--text-muted);
+  width: 100%;
+}
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 9px;
+  right: 9px;
+  height: 1px;
+  background-color: var(--divider-color);
+}
+.divider span {
+  background-color: var(--card-background);
+  padding: 0 1rem;
+  position: relative;
+}
+
+
+/* === ANIMATION === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

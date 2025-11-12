@@ -1,0 +1,175 @@
+/* ============================================================
+   LOCAL FONT SETUP — DM Sans + Space Grotesk (Variable)
+   ============================================================ */
+
+/* === DM Sans Regular (Variable) === */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === Space Grotesk (Variable) === */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+/* === ROOT VARIABLES === */
+:root {
+  --container-bg-color: #1a1f27;
+  --input-background: #4b5563;
+  --button-primary: #d97706;
+  --button-primary-hover: #b45309;
+  --text-white: #ffffff;
+  --text-muted: #9ca3af;
+  --text-accent: #d97706;
+  --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+
+/* === BODY & GENERAL LAYOUT === */
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: #152030;
+  color: var(--text-white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+
+/* === MAIN CARD BOX - A Section of Dark Blue === */
+.main-card {
+  background-color: var(--container-bg-color);
+  border-radius: 1.5rem;
+  padding: 3rem 2rem;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  max-width: 24rem;
+  margin: auto;
+}
+
+
+/* === LOGO & TEXT === */
+.logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-accent);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+
+/* === FORM STYLING === */
+.input-group {
+  width: 88%;
+  margin-bottom: 1.5rem;
+}
+input {
+  width: 100%;
+  padding: 0.78rem 1rem;
+  font-size: 14px;
+  background-color: var(--input-background);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--text-white);
+}
+input:focus {
+  box-shadow: 0 0 0 2px var(--text-accent);
+  outline: none;
+}
+
+
+/* === FORGET PASSWORD === */
+.forgot-password-link {
+  display: block;
+  width: 88%;
+  text-align: left;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+
+/* === LOGIN  BUTTON === */
+.button {
+  padding: 0.78rem;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  background-color: var(--button-primary);
+  color: var(--text-white);
+  width: 98%;
+}
+.button:hover {
+  background-color: var(--button-primary-hover);
+  transform: translateY(-2px);
+}
+
+
+/* === FOOTER TEXT & LINKS === */
+.note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+.back-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--text-accent);
+  text-decoration: none;
+}
+
+
+/* === DIVIDER - The Line (Manual Adjustment) === */
+.divider {
+  margin: 1.5rem 0;
+  text-align: center;
+  position: relative;
+  color: var(--text-muted);
+  font-weight: 500;
+  width: 100%;
+  display: block;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0px;  
+  right: 0px;
+  height: 1px;
+  background-color: var(--input-background);
+}
+
+.divider span {
+  background-color: var(--container-bg-color);
+  padding: 0 1rem;
+  position: relative;
+}
+

@@ -1,0 +1,48 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+  header("Location: login.html");
+  exit;
+}
+$username = htmlspecialchars($_SESSION['username'] ?? '');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Profile | CampVerse</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/icons/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/edit-profile.css">
+</head>
+<body>
+  <header class="top-bar">
+    <h1>Edit <span>Profile</span></h1>
+  </header>
+
+  <main class="content">
+    <section class="profile-section">
+      <h2>Your Account</h2>
+      <p class="info-text">
+        You can update your display name here. This name will appear on all your posts across CampVerse.
+      </p>
+
+      <form id="profileForm" method="POST" action="backend/update_profile.php" class="profile-form">
+        <label for="username">Display Name</label>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="username" name="username" value="<?php echo $username; ?>" required minlength="2" maxlength="100" />
+        </div>
+
+        <button type="submit" class="save-btn"><i class="fas fa-save"></i> Update</button>
+      </form>
+
+      <a href="announce.php" class="back-btn"><i class="fas fa-arrow-left"></i> Back to CampVerse</a>
+    </section>
+  </main>
+</body>
+</html>

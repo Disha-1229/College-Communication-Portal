@@ -1,0 +1,104 @@
+/* ===============================
+   Contact Page - CampVerse
+   =============================== */
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #131e30;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header bar */
+.top-bar {
+  background: #1a283f;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.top-bar h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #fff;
+}
+
+.top-bar span {
+  color: #d97706;
+}
+
+/* Main content */
+.content {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #1e293b;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+/* Section title */
+.contact-list h2 {
+  color: #d97706;
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+}
+
+/* Contact cards */
+.contact-card {
+  background: #2e3b4f;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 15px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.contact-card:hover {
+  background: #334155;
+  transform: translateY(-4px);
+}
+
+.contact-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.contact-card p {
+  margin: 6px 0 0;
+  color: #d1d5db;
+  font-size: 1rem;
+}
+
+/* Back button */
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  background: #d97706;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #b45309;
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .contact-card {
+    padding: 15px;
+  }
+}

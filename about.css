@@ -1,0 +1,68 @@
+/* ===============================
+   About Page - CampVerse
+   =============================== */
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #131e30;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar {
+  background: #152030;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.top-bar h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.top-bar span {
+  color: #d97706;
+}
+
+.content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px 25px;
+  background: #343f4d;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.about-section h2 {
+  color: #d97706;
+  margin-top: 1.2rem;
+}
+
+.about-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-section li {
+  margin: 8px 0;
+  font-size: 1.05rem;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #d97706;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #b45309;
+}
